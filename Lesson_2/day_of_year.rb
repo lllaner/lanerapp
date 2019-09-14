@@ -2,8 +2,8 @@
 arr = ["day","month","year"]
 data = []
 3.times do |x| 
-p "Please input #{arr[x]}" 
-data[x] = gets.chomp.to_i
+  p "Please input #{arr[x]}" 
+  data[x] = gets.chomp.to_i
 end
 
 month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
