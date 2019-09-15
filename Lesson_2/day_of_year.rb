@@ -7,13 +7,12 @@ data = []
 end
 
 month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
+month[data[1]-1] = data[0]
 #Chek if year is leap
 month[1] = 29 if data[2] % 400 == 0 || (data[2] % 4 == 0 && data[2] % 100 != 0)
 
 #Getting day of year
 i = 0
 (0..(data[1] - 1)).each{|x| i +=  month[x] }
-
 #Output day of year
 p "Number of day is #{i}"
