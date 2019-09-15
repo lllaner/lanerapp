@@ -12,7 +12,7 @@ month[data[1]-1] = data[0]
 month[1] = 29 if data[2] % 400 == 0 || (data[2] % 4 == 0 && data[2] % 100 != 0)
 
 #Getting day of year
-i = 0
-(0..(data[1] - 1)).each{|x| i +=  month[x] }
+day_of_year = 0
+(0..(data[1] - 1)).each{|x| day_of_year +=  month[x] }
 #Output day of year
-p "Number of day is #{i}"
+p "Number of day is #{day_of_year}"
