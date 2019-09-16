@@ -1,10 +1,10 @@
 #Create alphabet
 latters = ("a".."z").to_a
-number = (0..25).to_a
 all_latters = {}
-
+# = x +1 if latters[x][]
+vowel = /[aeiou]/
 #create hash with vowels
-number.each {|x| all_latters[latters[x]] = x +1 if latters[x][/[aeiou]/]}
+latters.each.with_index {|latter,value| all_latters[latter] = value + 1 if latter[vowel]}
 
 #Output vowels latters
 p all_latters

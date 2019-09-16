@@ -15,4 +15,4 @@ months = {
 }
 
 #Output month where month have 30 days
-months.each{|month,days| puts month+": "+days.to_s if days == 30}
+months.each {|month,days| puts "#{month}: #{days.to_s}" if days == 30} 
