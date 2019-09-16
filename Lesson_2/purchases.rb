@@ -11,7 +11,7 @@ loop do
   product_price = gets.chomp.to_f
   p "Please enter number of product"
   number_product = gets.chomp.to_f
-  cart[name_product] = {price: product_price, count: number_product}
+  cart[name_product] = { price: product_price, count: number_product }
 end
 
 #Output result
