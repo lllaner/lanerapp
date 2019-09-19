@@ -1,5 +1,5 @@
 class Train
-  
+
   attr_reader :name, :type
   attr_accessor :number_cars, :speed
 
@@ -24,6 +24,10 @@ class Train
 
   def current_cars
     @number_cars
+  end
+
+  def car_add
+    @number_cars += 1 if @speed == 0 
   end
 
   def car_out
