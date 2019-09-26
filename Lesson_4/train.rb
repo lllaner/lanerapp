@@ -75,7 +75,7 @@ class Train
       @position -= 1
     end 
   end
-
+#Before it is use only into programm, don't  use outside programm
   private
 
   def last_station?
