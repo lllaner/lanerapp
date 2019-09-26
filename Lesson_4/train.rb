@@ -1,12 +1,12 @@
 class Train
 
   attr_reader :name, :type
-  attr_accessor :number_cars, :speed
+  attr_accessor :cars, :speed
 
-  def initialize(name,type,number_cars)
+  def initialize(name,type)
     @name = name
     @type = type
-    @number_cars = number_cars
+    @cars = []
     @speed = 0
   end
 
@@ -23,29 +23,21 @@ class Train
   end
 
   def current_cars
-    @number_cars
+    @cars.size
   end
 
-  def car_add
-    @number_cars += 1 if @speed == 0 
+  def car_add(car)
+    @cars << car if @speed.zero?
   end
 
   def car_out
-    @number_cars -= 1 if @speed == 0 && number_cars > 0
+    @cars.delete(cars.last)
   end
 
   def get_route(route)
     @route = route
     @route.stations.first.take_train(self)
     @position = 0
-  end
-
-  def last_station?
-    @route.stations.last == current_station
-  end
-
-  def first_station?
-    @route.stations.first == current_station
   end
 
   def current_station()
@@ -83,5 +75,16 @@ class Train
       @position -= 1
     end 
   end
+
+  private
+
+  def last_station?
+    @route.stations.last == current_station
+  end
+
+  def first_station?
+    @route.stations.first == current_station
+  end
+
 
 end

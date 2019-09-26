@@ -15,7 +15,7 @@ class Route
   end
 
   def show_stations
-    @stations.each.with_index(1) { |station,index| p "#{station}: #{station}" }
+    @stations.each.with_index(1) { |station,index| p "#{index}: #{station.name}" }
   end
 
 end

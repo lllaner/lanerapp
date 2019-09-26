@@ -11,7 +11,8 @@ class Station
   end
 
   def show_trains
-    trains
+    trains.each.with_index(1) { |train,index| puts "#{index} - #{train.name}: #{train.class}" }
+
   end
 
   def send_train(train)
