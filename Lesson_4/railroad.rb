@@ -6,8 +6,6 @@ class Railroad
     @stations = [] 
   end
 
-
-
 def menu
   loop do 
     select_option
@@ -150,7 +148,6 @@ end
     p 'Please select option'
   end
 
-
 #Show methods
 def show_stations
   @stations.each.with_index(1) { |station,index| p "#{index} - #{station.name}"}
@@ -223,4 +220,3 @@ end
   end
 
 end
-

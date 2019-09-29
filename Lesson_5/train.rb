@@ -1,12 +1,21 @@
 class Train
-
+  include CreatedBy
+  include InstanceCounter
   attr_reader :name, :type
   attr_accessor :cars, :speed
+
+  @@trains = []
+
+  def self.find(number)
+    @@trains[number]
+  end
 
   def initialize(name,type)
     @name = name
     @type = type
     @cars = []
+    @number = @@trains.size
+    @@trains[@number] = self
     @speed = 0
   end
 
