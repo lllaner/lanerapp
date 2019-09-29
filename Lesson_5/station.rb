@@ -7,9 +7,9 @@ class Station
     @@instances
   end
   def initialize(name)
-  @name = name
-  @trains = []
-  @@instances << self
+    @name = name
+    @trains = []
+    @@instances << self
   end
 
   def take_train(train)
