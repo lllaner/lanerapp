@@ -4,18 +4,17 @@ class Train
   attr_reader :name, :type
   attr_accessor :cars, :speed
 
-  @@trains = []
+  @@trains = {}
 
-  def self.find(number)
-    @@trains[number]
+  def self.find(name)
+    @@trains[name]
   end
 
   def initialize(name,type)
     @name = name
     @type = type
     @cars = []
-    @number = @@trains.size
-    @@trains[@number] = self
+    @@trains[@name] = self
     @speed = 0
   end
 
