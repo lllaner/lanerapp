@@ -4,8 +4,8 @@ class Route
   attr_reader :stations
 
   def initialize(first_station, last_station)
-    validate!(first_station, last_station)
     @stations = [first_station, last_station]
+    validate!
   end
 
   def add_station(station)
@@ -16,8 +16,8 @@ class Route
     @stations.delete(station)
   end
 
-  def validate!(first_station, last_station)
-    raise 'Station must be different' if first_station == last_station
+  def validate!
+    raise 'Station must be different' if @stations.first == @stations.last
   end
 
   def valid?
