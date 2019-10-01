@@ -1,6 +1,6 @@
 class Route
   include InstanceCounter
-  
+  include Valid
   attr_reader :stations
 
   def initialize(first_station, last_station)
@@ -20,14 +20,13 @@ class Route
     raise 'Station must be different' if @stations.first == @stations.last
   end
 
-  def valid?
-    validate!
-  rescue
-    false
-  end
-
   def show_stations
     @stations.each.with_index(1) { |station, index| p "#{index}: #{station.name}" }
   end
 
+  private
+
+  def validate!
+    raise 'Station must be different' if @stations.first == @stations.last
+  end
 end

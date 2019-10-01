@@ -4,6 +4,7 @@
 class Train
   include CreatedBy
   include InstanceCounter
+  include Valid
   attr_reader :name, :type
   attr_accessor :cars, :speed
 
@@ -21,16 +22,6 @@ class Train
     validate!
     @@trains[@name] = self
     @speed = 0
-  end
-
-  def validate!
-    raise 'This is not right format for name' if name !~ NUMBER_FORMAT
-  end
-
-  def valid?
-    validate!
-  rescue
-    false
   end
 
   def speed_up(speed)
@@ -69,7 +60,6 @@ class Train
 
   def next_station
     if last_station?
-      p 'Station is last'
     else
       @route.stations[@position + 1]
     end
@@ -77,7 +67,6 @@ class Train
 
   def previous_station
     if first_station?
-      p 'Station is first'
     else
       @route.stations[@position - 1]
     end
@@ -101,6 +90,10 @@ class Train
   # => Before it is use only into programm, don't  use outside programm
 
   private
+
+  def validate!
+    raise 'This is not right format for name' if name !~ NUMBER_FORMAT
+  end
 
   def last_station?
     @route.stations.last == current_station

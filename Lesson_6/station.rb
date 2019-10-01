@@ -1,8 +1,9 @@
 class Station
   attr_reader :name, :trains
   include InstanceCounter
+  include Valid
   @@instances = []
-  NAME_FORMAT =  /^[a-z0-9]/
+  NAME_FORMAT =  /^[a-z0-9]*/
 
   def self.all
     @@instances
@@ -13,16 +14,6 @@ class Station
     @trains = []
     validate!
     @@instances << self
-  end
-
-  def validate!
-    raise 'This is not right format' if name !~ NAME_FORMAT
-  end
-
-  def valid?
-    validate!
-  rescue
-    false
   end
 
   def take_train(train)
@@ -40,4 +31,11 @@ class Station
   def show_trains_by_type(type)
     trains.each { |train| p "#{train}" if train.type == type }
   end
+
+  private
+
+  def validate!
+    raise 'This is not right format' if name !~ NAME_FORMAT
+  end
+
 end
