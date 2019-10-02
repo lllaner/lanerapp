@@ -1,7 +1,10 @@
-r = gets.chomp
-regex = /^[a-zа-я0-9]{3}[-]*[a-zа-я0-9]{2}/
-if r =~ regex
-  puts "right"
-else
-  puts "not right"
+# frozen_string_literal: true
+
+t1 = [1, 2]
+t2 = [3, 4]
+@st = [t1, t2]
+
+def met
+  @st.each { |value| yield(value) }
 end
+met { |v1, v2| p "#{v1} , #{v2}" }
