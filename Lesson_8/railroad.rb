@@ -12,7 +12,8 @@ class Railroad
     loop do
       select_option
       puts menu_option
-      general_methods = %w[create_station create_train create_route stations trains routes]
+      general_methods = %w[create_station create_train create_route stations
+                           trains routes]
       choose = user_choose
       send(general_methods[choose]) unless general_methods[choose].nil?
     end
@@ -22,17 +23,6 @@ class Railroad
 
   def render_menu(menu_option)
     menu_option.each { |option| p option }
-  end
-
-  def menu_option
-    [
-      '1 - Create station',
-      '2 - Create train',
-      '3 - Create route',
-      '4 - Show stations',
-      '5 - Show trains',
-      '6 - Show routes'
-    ]
   end
 
   def create_station
@@ -203,6 +193,17 @@ class Railroad
 
   def user_choose
     gets.chomp.to_i - 1
+  end
+
+  def menu_option
+    [
+      '1 - Create station',
+      '2 - Create train',
+      '3 - Create route',
+      '4 - Show stations',
+      '5 - Show trains',
+      '6 - Show routes'
+    ]
   end
 
   def type_train

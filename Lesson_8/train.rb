@@ -78,10 +78,12 @@ class Train
   end
 
   def send_next_station
-    if !@route.nil? && @route.stations.last != current_station
+    if !@route.nil? && (@route.stations.last != current_station)
       current_station.send_train(self)
       next_station.take_train(self)
       @position += 1
+    else
+      puts 'Route is empty or current route station is last'
     end
   end
 
@@ -90,6 +92,8 @@ class Train
       current_station.send_train(self)
       previous_station.take_train(self)
       @position -= 1
+    else
+      puts 'Route is empty or current route station is first'
     end
   end
   # => Before it is use only into programm, don't  use outside programm
